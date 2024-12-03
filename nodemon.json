@@ -1,0 +1,7 @@
+{
+    "watch": ["app", "components", "styles", "utils"],
+    "ext": "ts,tsx,css,js",
+    "exec": "npm run auto-commit",
+    "ignore": ["node_modules"]
+  }
+  
