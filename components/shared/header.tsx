@@ -6,12 +6,9 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ className = '' }) => {
   return (
-    <header className={`bg-neutral-900 w-full h-16 ${className}`}>
+    <header className={`bg-neutral-950 w-full h-16 border-b-2 border-neutral-900${className}`}>
       <div className="flex items-center justify-between px-4 h-full">
-        {/* Логотип или название сайта */}
         <h1 className="text-white text-lg font-semibold">MyWebsite</h1>
-
-        {/* Навигация */}
         <nav>
           <ul className="flex space-x-4">
             <li>
