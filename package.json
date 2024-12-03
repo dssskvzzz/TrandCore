@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "concurrently \"npm run start\" \"npm run auto-commit\"",
     "start": "next dev",
-    "auto-commit": "node --loader ts-node/esm commit-changes.ts"
+    "auto-commit": "node --loader ts-node/esm commit-changes.ts",
+    "build": "next build"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
