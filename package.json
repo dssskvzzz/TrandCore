@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "auto-commit": "node --loader ts-node/esm commit-changes.ts",
-    "dev": "next dev"
+    "dev": "concurrently \"npm run start\" \"npm run auto-commit\"",
+    "start": "next dev",
+    "auto-commit": "node --loader ts-node/esm commit-changes.ts"
   },
   "dependencies": {
     "next": "15.0.3",
@@ -17,6 +18,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "concurrently": "^9.1.0",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "nodemon": "^3.1.7",
