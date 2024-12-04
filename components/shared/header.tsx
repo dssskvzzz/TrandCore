@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
           <NavMenu />
         </div>
         <div>
-          <ul className="flex space-x-4">
+          <ul className="flex space-x-2">
             <Button className='font-semibold'>Sing Up</Button>
             <Button variant={"ghost"} className='font-semibold'>Log In</Button>
           </ul>
