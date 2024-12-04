@@ -1,47 +1,69 @@
-import Link from "next/link";
-import React from "react";
-import { Home, Settings, Table, FileText } from "lucide-react"; // Import icons from lucide-react
+import { Calendar, Home, Inbox, Search, Settings, ArrowLeft } from "lucide-react"
 
-const EducationSidebar = () => {
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar"
+
+const items = [
+  {
+    title: "Basics",
+    url: "/education/basics",
+    icon: Home,
+  },
+  {
+    title: "Settings",
+    url: "/education/settings",
+    icon: Inbox,
+  },
+  {
+    title: "Table",
+    url: "/education/table",
+    icon: Calendar,
+  },
+  {
+    title: "Usage",
+    url: "/education/usage",
+    icon: Search,
+  },
+]
+
+export function AppSidebar() {
   return (
-    <div className="w-64 text-white p-6 border-r min-h-screen">
-      <h2 className="text-2xl font-bold mb-4">Education</h2>
-      <ul>
-        <li>
-          <Link href="/education/basics" className="flex items-center py-2 px-4 rounded hover:bg-neutral-900">
-            <span className="mr-3">
-              <Home className="h-6 w-6" />
-            </span>
-            <span>Basics</span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/education/settings" className="flex items-center py-2 px-4 rounded hover:bg-neutral-900">
-            <span className="mr-3">
-              <Settings className="h-6 w-6" />
-            </span>
-            <span>Settings</span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/education/table" className="flex items-center py-2 px-4 rounded hover:bg-neutral-900">
-            <span className="mr-3">
-              <Table className="h-6 w-6" />
-            </span>
-            <span>Table</span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/education/usage" className="flex items-center py-2 px-4 rounded hover:bg-neutral-900">
-            <span className="mr-3">
-              <FileText className="h-6 w-6" />
-            </span>
-            <span>Usage</span>
-          </Link>
-        </li>
-      </ul>
-    </div>
-  );
-};
-
-export default EducationSidebar;
+    <Sidebar className="!bg-neutral-950 flex flex-col justify-between h-full">
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel>Education</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {items.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <a href={item.url}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+      <SidebarMenuItem className="mt-auto p-2 mb-2">
+        <SidebarMenuButton asChild>
+          <a href="/">
+            <ArrowLeft />
+            <span>Back</span>
+          </a>
+        </SidebarMenuButton>
+      </SidebarMenuItem>
+    </Sidebar>
+  )
+}

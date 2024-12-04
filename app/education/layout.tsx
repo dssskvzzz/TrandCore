@@ -1,15 +1,18 @@
-import EducationSidebar from "@/components/EducationSidebar"; // Import Sidebar component
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/EducationSidebar";
 import { ReactNode } from "react";
 
-// Layout component for the education section
 const EducationLayout = ({ children }: { children: ReactNode }) => {
     return (
-        <div className="flex">
-            {/* Sidebar */}
-            <EducationSidebar />
-
-            {/* Main Content Area */}
-            <div className="flex-1 p-6">{children}</div>
+        <div className="flex h-screen">
+            <SidebarProvider>
+                <AppSidebar />
+                <main className="flex flex-1 justify-center">
+                    <div className="w-full max-w-7xl px-4">
+                        {children}
+                    </div>
+                </main>
+            </SidebarProvider>
         </div>
     );
 };
