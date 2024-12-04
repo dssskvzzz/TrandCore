@@ -79,7 +79,7 @@ ListItem.displayName = "ListItem";
 export const NavMenu = () => {
     return (
         <NavigationMenu>
-            <NavigationMenuList>
+            <NavigationMenuList className="font-semibold">
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Academy</NavigationMenuTrigger>
                     <NavigationMenuContent>
