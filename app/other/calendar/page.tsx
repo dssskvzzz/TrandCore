@@ -1,13 +1,31 @@
+"use client";
 import React, { useEffect, useState } from "react";
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table";
 
-const EconomicCalendar = () => {
-    const [events, setEvents] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+// Интерфейс для описания структуры события
+interface EconomicEvent {
+    Time: string;
+    Currency: string;
+    Impact: string;
+    Event: string;
+}
+
+const EconomicCalendar: React.FC = () => {
+    const [events, setEvents] = useState<EconomicEvent[]>([]); // Задаем тип состояния
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         // Запрос к API
-        fetch("http://localhost:5000/api/economic-calendar")
+        fetch("/api/economic-calendar") // Используем относительный путь
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch data");
@@ -15,7 +33,7 @@ const EconomicCalendar = () => {
                 return response.json();
             })
             .then((data) => {
-                setEvents(data.data || []);
+                setEvents(data.data || []); // Указываем, что ожидаем массив данных
                 setLoading(false);
             })
             .catch((err) => {
@@ -33,28 +51,31 @@ const EconomicCalendar = () => {
     }
 
     return (
-        <div className="container mt-4">
-            <h1 className="text-center">Economic Calendar</h1>
-            <table className="table table-bordered mt-4">
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>Currency</th>
-                        <th>Impact</th>
-                        <th>Event</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {events.map((event, index) => (
-                        <tr key={index}>
-                            <td>{event.Time}</td>
-                            <td>{event.Currency}</td>
-                            <td>{event.Impact}</td>
-                            <td>{event.Event}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+        <div className="flex justify-center items-center min-h-screen">
+            <div className="max-w-4xl w-full">
+                <h1 className="text-center text-2xl font-semibold mb-4">Economic Calendar</h1>
+                <Table className="w-full border">
+                    <TableCaption>List of economic events</TableCaption>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHead>Time</TableHead>
+                            <TableHead>Currency</TableHead>
+                            <TableHead>Impact</TableHead>
+                            <TableHead>Event</TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        {events.map((event, index) => (
+                            <TableRow key={index}>
+                                <TableCell>{event.Time}</TableCell>
+                                <TableCell>{event.Currency}</TableCell>
+                                <TableCell>{event.Impact}</TableCell>
+                                <TableCell>{event.Event}</TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </div>
         </div>
     );
 };
