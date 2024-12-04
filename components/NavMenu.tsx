@@ -79,7 +79,7 @@ ListItem.displayName = "ListItem";
 export const NavMenu = () => {
     return (
         <NavigationMenu>
-            <NavigationMenuList className="font-semibold">
+            <NavigationMenuList>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Academy</NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -103,35 +103,68 @@ export const NavMenu = () => {
                             <li className="row-span-3">
                                 <NavigationMenuLink asChild>
                                     <Link
-                                        href="/"
+                                        href="/education"
                                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                                     >
                                         <div className="mb-2 mt-4 text-lg font-medium">
-                                            My Project
+                                            Education
                                         </div>
                                         <p className="text-sm leading-tight text-muted-foreground">
-                                            Custom components built with Radix UI and Tailwind CSS.
+                                            Basic training on how to use the tool.
                                         </p>
                                     </Link>
                                 </NavigationMenuLink>
-
                             </li>
-                            <ListItem href="/docs" title="Introduction">
+
+                            <ListItem href="/education/basics" title="Basics">
                                 Introduction to reusable components.
                             </ListItem>
-                            <ListItem href="/docs/installation" title="Installation">
+                            <ListItem href="/education/settings" title="Settings">
                                 Guide to setting up your project.
                             </ListItem>
-                            <ListItem href="/docs/primitives/typography" title="Typography">
+                            <ListItem href="/education/table" title="Table">
                                 Styles for headers, paragraphs, and more.
                             </ListItem>
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <Link href="/docs" legacyBehavior passHref>
+                    <NavigationMenuTrigger>Other</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                        <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                            <li className="row-span-3">
+                                <NavigationMenuLink asChild>
+                                    <Link
+                                        href="/other"
+                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                                    >
+                                        <div className="mb-2 mt-4 text-lg font-medium">
+                                            Other
+                                        </div>
+                                        <p className="text-sm leading-tight text-muted-foreground">
+                                            Other economic functions.
+                                        </p>
+                                    </Link>
+                                </NavigationMenuLink>
+
+                            </li>
+                            <ListItem href="/other/calendar" title="Economic Calendar">
+                                Economic calendar for tracking events affecting the market.
+                            </ListItem>
+                            <ListItem href="/other/analisis/cme" title="CME Analisis">
+                                Analysis of CME trades using AI.
+                            </ListItem>
+                            <ListItem href="/other/analisis" title="Analisis">
+                                Styles for headers, paragraphs, and more.
+                            </ListItem>
+                        </ul>
+                    </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                    <Link href="/trader" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Documentation
+                            Trader
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>
