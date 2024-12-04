@@ -1,4 +1,5 @@
 import { Calendar, Home, Inbox, Search, Settings, ArrowLeft } from "lucide-react"
+import Link from "next/link"
 
 import {
   Sidebar,
@@ -58,10 +59,10 @@ export function AppSidebar() {
       </SidebarContent>
       <SidebarMenuItem className="mt-auto p-2 mb-2">
         <SidebarMenuButton asChild>
-          <a href="/">
+          <Link href="/">
             <ArrowLeft />
             <span>Back</span>
-          </a>
+          </Link>
         </SidebarMenuButton>
       </SidebarMenuItem>
     </Sidebar>
