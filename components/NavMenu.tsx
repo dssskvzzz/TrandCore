@@ -103,11 +103,11 @@ export const NavMenu = () => {
                             <li className="row-span-3">
                                 <NavigationMenuLink asChild>
                                     <Link
-                                        href="/education"
+                                        href="/education/basics"
                                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                                     >
                                         <div className="mb-2 mt-4 text-lg font-medium">
-                                            Education
+                                            Basics
                                         </div>
                                         <p className="text-sm leading-tight text-muted-foreground">
                                             Basic training on how to use the tool.
@@ -116,7 +116,7 @@ export const NavMenu = () => {
                                 </NavigationMenuLink>
                             </li>
 
-                            <ListItem href="/education/basics" title="Basics">
+                            <ListItem href="/education/usage" title="Usage">
                                 Introduction to reusable components.
                             </ListItem>
                             <ListItem href="/education/settings" title="Settings">
@@ -135,26 +135,26 @@ export const NavMenu = () => {
                             <li className="row-span-3">
                                 <NavigationMenuLink asChild>
                                     <Link
-                                        href="/other"
+                                        href="/other/economic-calendar"
                                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                                     >
                                         <div className="mb-2 mt-4 text-lg font-medium">
-                                            Other
+                                            Economic Calendar
                                         </div>
                                         <p className="text-sm leading-tight text-muted-foreground">
-                                            Other economic functions.
+                                            Economic calendar for tracking events affecting the market
                                         </p>
                                     </Link>
                                 </NavigationMenuLink>
 
                             </li>
-                            <ListItem href="/other/calendar" title="Economic Calendar">
+                            <ListItem href="/other" title="...">
                                 Economic calendar for tracking events affecting the market.
                             </ListItem>
                             <ListItem href="/other/analisis/cme" title="CME Analisis">
                                 Analysis of CME trades using AI.
                             </ListItem>
-                            <ListItem href="/other/analisis" title="Analisis">
+                            <ListItem href="/other/analisis" title="...">
                                 Styles for headers, paragraphs, and more.
                             </ListItem>
                         </ul>

@@ -25,7 +25,7 @@ const EconomicCalendar: React.FC = () => {
 
     useEffect(() => {
         // Запрос к API
-        fetch("/api/economic-calendar") // Используем относительный путь
+        fetch("http://127.0.0.1:5000/api/economic-calendar")
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch data");
@@ -51,10 +51,10 @@ const EconomicCalendar: React.FC = () => {
     }
 
     return (
-        <div className="flex justify-center items-center min-h-screen">
-            <div className="max-w-4xl w-full">
-                <h1 className="text-center text-2xl font-semibold mb-4">Economic Calendar</h1>
-                <Table className="w-full border">
+        <div className="flex justify-center max-w-2xl mx-auto mt-4">
+            <div className="w-full">
+                <h1 className="text-center">Economic Calendar</h1>
+                <Table className="mt-4">
                     <TableCaption>List of economic events</TableCaption>
                     <TableHeader>
                         <TableRow>
