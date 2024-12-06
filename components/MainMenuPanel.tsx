@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Button } from "@/components/ui/button";
-
+import Image from "next/image";
 interface MainMenuProps {
     className?: string;
 }
@@ -20,10 +20,12 @@ const MainMenu: React.FC<MainMenuProps> = ({ className = '' }) => {
                 <Button className="mt-6">Start Free Trial</Button>
                 <Button className="mt-6 ml-4" variant={"ghost"}>Read More</Button>
             </div>
-            <div className="w-1/2 flex items-center justify-end mt-36">
-                <img
+            <div className="w-1/2 flex items-center justify-end mt-24">
+                <Image
                     src="/table.png"
                     alt="Crypto Trading Bot"
+                    width={700}
+                    height={400}
                 />
             </div>
         </div>
