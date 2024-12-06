@@ -5,10 +5,11 @@
   "type": "module",
   "proxy": "http://localhost:5000",
   "scripts": {
-    "dev": "concurrently \"npm run start\" \"npm run auto-commit\"",
+    "dev": "concurrently \"npm run start\"",
     "start": "next dev",
     "auto-commit": "node --loader ts-node/esm commit-changes.ts",
-    "build": "next build"
+    "build": "next build",
+    "git": "npm run auto-commit"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",
