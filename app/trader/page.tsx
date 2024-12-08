@@ -1,23 +1,32 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation"; // Use Next.js Router for navigation
 import SideBar from "@/components/TraderSideBar";
+import sectionContent from "@/data/sectionData"; // Импортируем данные
+import Cookies from "js-cookie"; // Импортируем js-cookie
 
 const TraderHome = () => {
-  return (
-    <>
-      <div className="grid grid-cols-6">
-        <div className="col-span-1">
-          <SideBar />
-        </div>
+  const [activeSection, setActiveSection] = useState<string>("dashboard");
+  const router = useRouter();
+  const user = Cookies.get("user");
 
-        <div className="col-span-5 mt-3 mr-3 border rounded-xl ">
-          <div className="p-8 w-full">
-            <h1 className="text-4xl font-bold mb-6">Welcome to the Education Section</h1>
-            <p className="text-lg text-neutral-600">
-              Explore a variety of learning resources, courses, and community discussions.
-            </p>
-          </div>
-        </div>
+  useEffect(() => {
+    if (!user) {
+      // Redirect to login page if user is not logged in
+      router.push("/login");
+    }
+  }, [user, router]);
+
+  return (
+    <div className="grid grid-cols-6">
+      <div className="col-span-1">
+        <SideBar activeSection={activeSection} setActiveSection={setActiveSection} />
       </div>
-    </>
+      <div className="col-span-5 mt-3 mr-3 border rounded-xl">
+        {sectionContent[activeSection] || sectionContent.dashboard}
+      </div>
+    </div>
   );
 };
 

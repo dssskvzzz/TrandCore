@@ -13,9 +13,9 @@ const MainMenu: React.FC<MainMenuProps> = ({ className = '' }) => {
                 <h1 className="text-5xl font-bold mb-4">
                     The world&apos;s <br /> most customizable <br /> crypto trading bot
                 </h1>
-                <p className="text-neutral-400 mt-6">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum <br />
-                    has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer <br />
+                <p className="text-neutral-400 mt-6 max-w-[640px]">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum 
+                    has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer
                     took a galley of type and scrambled it to make a type specimen book.
                 </p>
                 <Button className="mt-6">Start Free Trial</Button>

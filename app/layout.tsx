@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider"
 import { Montserrat } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner"
 import "./globals.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-montserrat", 
+  variable: "--font-montserrat",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +26,8 @@ export default function RootLayout({
         className={`${montserrat.variable} antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-            {children}
+          <main>{children}</main>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

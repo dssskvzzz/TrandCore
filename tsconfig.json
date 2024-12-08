@@ -18,6 +18,7 @@
         "name": "next"
       }
     ],
+    "types": ["bcrypt", "node"], // Добавлена строка с типами для bcrypt и node
     "paths": {
       "@/*": ["./*"]
     }
