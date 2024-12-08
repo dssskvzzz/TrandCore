@@ -52,10 +52,10 @@ export default function LoginPage() {
             if (response.ok) {
                 if (rememberMe) {
                     // Set cookie for indefinite duration if "Remember me" is checked
-                    Cookies.set("user", JSON.stringify(data.user), { expires: 365 * 10 }); // 10 years
+                    Cookies.set("user", JSON.stringify(data.user), { expires: 365 * 10, sameSite: 'none', secure: true });
                 } else {
                     // Set cookie with 1-minute expiration if "Remember me" is not checked
-                    Cookies.set("user", JSON.stringify(data.user), { expires: 1 / 1440 });
+                    Cookies.set("user", JSON.stringify(data.user), { expires: 1 / 1440, sameSite: 'none', secure: true });
                 }
                 console.log("Login Successful:", formValues);
                 router.push("/");
