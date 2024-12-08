@@ -54,16 +54,16 @@ export default function RegisterPage() {
 
             if (response.ok) {
                 router.push("/login");
-                toast.success("Registration successful.")
+                toast.success("Registration successful.");
             } else {
-                toast(data.error ||"Registration failed.")
-
+                toast(data.error || "Registration failed.");
             }
         } catch (err) {
-            console.error(err);
-            toast.error("Registration failed.")
+            console.error("Error during registration:", err);
+            toast.error("Registration failed.");
         }
     };
+
 
     const validateForm = () => {
         const errors = {
