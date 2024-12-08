@@ -58,6 +58,7 @@ export default function RegisterPage() {
       } else {
         const errorData = await response.json();
         toast(errorData.error || "Registration failed.");
+        console.error("Registration failed:", errorData.error);
       }
     } catch (err) {
       console.error("Error during registration:", err);
