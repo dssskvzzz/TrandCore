@@ -53,7 +53,6 @@ export default function RegisterPage() {
       });
 
       if (response.ok) {
-        const data = await response.json();
         router.push("/login");
         toast.success("Registration successful.");
       } else {
