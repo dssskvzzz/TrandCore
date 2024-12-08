@@ -6,8 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArrowLeft } from "lucide-react";
-import { toast } from "sonner"
-
+import { toast } from "sonner";
 import Link from "next/link";
 
 export default function RegisterPage() {
@@ -59,11 +58,10 @@ export default function RegisterPage() {
                 toast(data.error || "Registration failed.");
             }
         } catch (err) {
-            console.error("Error during registration:", err);
+            console.error("Error during registration:", err); // Log error details
             toast.error("Registration failed.");
         }
     };
-
 
     const validateForm = () => {
         const errors = {
