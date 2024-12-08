@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "proxy": "http://localhost:5000",
   "scripts": {
     "dev": "concurrently \"npm run start\"",
     "start": "next dev",
     "auto-commit": "node --loader ts-node/esm commit-changes.ts",
     "build": "prisma generate && next build",
-    "git": "npm run auto-commit"
+    "git": "npm run auto-commit",
+    "postinstall": "prisma generate",
+    "vercel-build": "prisma generate && prisma migrate deploy && next build"
   },
   "dependencies": {
     "@prisma/client": "^6.0.1",
